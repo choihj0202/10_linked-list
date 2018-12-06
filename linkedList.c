@@ -68,17 +68,29 @@ void genList(void) {
 }
 
 // node 내용 일괄 출력, 두번째 노드부터 
-void print_list(void) {
+void print_list(int n) {
 	linknd_t *ndPtr; // node를 가리키는 포인터 변수 선언
+	int i = 0;
 	
 	ndPtr = (linknd_t*)list->next;
 	
 	while (ndPtr != NULL)
 	{
-		printf("%d ", ndPtr->data);
+		i++;
+		if (i == n)
+		{
+			printf("%i-th value : %i\n", i, ndPtr->data);
+			break;
+		}
+		
+		//printf("%d ", ndPtr->data);
 		ndPtr = ndPtr->next;
 	} 
-} 
+	
+	if (i != n)
+	{
+		printf("n번째 데이터는 없습니다!\n");
+	}
+}
 
 // addTail, genList, print_list는 메인에서 쓸 것  
-
