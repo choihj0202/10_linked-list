@@ -30,7 +30,7 @@ linknd_t* create_node(int value) {
 	
 	//정수값 저장  
 	ndPtr->data = value;
-	ndPtr->next - NULL;	// linked list의 next 초기화 
+	ndPtr->next = NULL;	// linked list의 next 초기화 
 	
 	return ndPtr; 
 }
@@ -48,6 +48,7 @@ void addTail(int value) {
 	else
 	{
 		ndPtr = list;
+		
 		while (ndPtr->next != NULL)
 		{
 			ndPtr = ndPtr->next;
@@ -57,4 +58,27 @@ void addTail(int value) {
 		ndPtr->next = newPtr;
 	}
 }
+
+// list 생성  
+void genList(void) {
+	
+	list = create_node(0); // headernode 생성  
+	
+	return; 
+}
+
+// node 내용 일괄 출력, 두번째 노드부터 
+void print_list(void) {
+	linknd_t *ndPtr; // node를 가리키는 포인터 변수 선언
+	
+	ndPtr = (linknd_t*)list->next;
+	
+	while (ndPtr != NULL)
+	{
+		printf("%d ", ndPtr->data);
+		ndPtr = ndPtr->next;
+	} 
+} 
+
+// addTail, genList, print_list는 메인에서 쓸 것  
 
